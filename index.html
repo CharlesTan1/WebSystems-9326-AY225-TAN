@@ -3,434 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Dev Portfolio | BSIT Student</title>
+    <title>Junior Philippine Computer Society (JPCS) - Home</title>
+    <link rel="stylesheet" href="./Prelim-Exam/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header id="header">
+    <!-- Header -->
+    <header>
         <div class="container header-container">
-            <a href="#home" class="logo">
-                <i class="fas fa-gamepad logo-icon"></i>
-                Portfolio
-            </a>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="logo-text">JP<span>CS</span></div>
+            </div>
+            
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
-            <nav>
-                <ul id="navMenu">
-                    <li><a href="#snake-game">Snake Game</a></li>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#certificates">Certificates</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            
+            <nav id="mainNav">
+    <ul>
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="./Prelim-Exam/about.html" class="nav-link">About JPCS</a></li>
+        <li><a href="./Prelim-Exam/officers.html" class="nav-link">Officers</a></li>
+        <li><a href="./Prelim-Exam/events.html" class="nav-link">Events</a></li>
+        <li><a href="./Prelim-Exam/registration.html" class="nav-link">Registration</a></li>
+    </ul>
+</nav>
         </div>
     </header>
 
-    <!-- Snake Game Section -->
-    <section class="snake-game-section" id="snake-game">
-        <div class="container">
-            <h2>Play My Snake Game</h2>
-            <div class="snake-container">
-                <div class="snake-game-container">
-                    <div class="score-board">
-                        Score: <span id="score">0</span>
-                    </div>
-                    <div style="position: relative;">
-                        <canvas id="gameCanvas" width="500" height="500"></canvas>
-                        <div id="gameOverScreen">
-                            <h2>GAME OVER!</h2>
-                            <p>Final Score: <span id="finalScore">0</span></p>
-                            <button class="restart-btn" onclick="restartGame()">PLAY AGAIN</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Mobile Control Buttons -->
-                    <div class="mobile-controls">
-                        <button class="control-btn up" id="btnUp">▲</button>
-                        <button class="control-btn left" id="btnLeft">◄</button>
-                        <div class="control-btn center">🐍</div>
-                        <button class="control-btn right" id="btnRight">►</button>
-                        <button class="control-btn down" id="btnDown">▼</button>
-                    </div>
-
-                    <div class="keyboard-controls">
-                        <p><strong>Desktop:</strong> Arrow Keys or WASD</p>
-                        <p><strong>Mobile:</strong> Use buttons above</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <span class="tagline">BSIT Game Development Student</span>
-                <h1>Hi, I'm Tan, Charles James</h1>
-                <h2>Aspiring BSIT Student</h2>
-                <p>2nd year BSIT student specializing in Game Development. Passionate about creating immersive gaming experiences while building strong foundations in database management, web technologies, and software development.</p>
-                <div class="hero-btns">
-                    <a href="#projects" class="btn">View My Projects</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="Assets/images/tanPicture.png" alt="Tan Charles James - Game Development Student">
+    <section class="hero">
+        <div class="container">
+            <h1>Junior Philippine Computer Society</h1>
+            <p>Empowering future tech leaders through innovation, collaboration, and professional development. Join our community of passionate computer science students and enthusiasts.</p>
+            <div class="hero-btns">
+                <a href="./Prelim-Exam/registration.html" class="btn">Join JPCS</a>
+                <a href="./Prelim-Exam/events.html" class="btn btn-outline">View Events</a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
+    <!-- Features Section -->
+    <section class="features">
         <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm a passionate 2nd-year BSIT student specializing in Game Development at Tech University. My journey into technology started with gaming, which evolved into a desire to create my own interactive experiences.</p>
-                    <p>While my primary focus is game development, I've developed strong skills in web technologies and database management, allowing me to build complete systems from front-end to back-end.</p>
-                    <p>I believe games are the ultimate fusion of art and technology, and I'm constantly learning new tools and techniques to bring creative ideas to life.</p>
-                    
-                    <div class="education">
-                        <h3>Current Education</h3>
-                        <p><strong>Bachelor of Science in Information Technology</strong></p>
-                        <p>Major in Game Development | 2nd Year</p>
-                        <p>University of Perpetual Help System Dalta Molino Campus | Expected Graduation: 2028</p>
+            <h2 class="section-title">Why Join JPCS?</h2>
+            <div class="features-grid">
+                <div class="card feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
                     </div>
+                    <h3>Community</h3>
+                    <p>Connect with like-minded students passionate about technology and computer science.</p>
                 </div>
-                <div class="skills" id="skills">
-                    <h3>Technical Skills</h3>
-                    <div class="skills-container">
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <h4>Database Management</h4>
-                            <p>MySQL, PostgreSQL, database design, normalization, and optimization for game data storage.</p>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fab fa-php"></i>
-                            </div>
-                            <h4>PHP Development</h4>
-                            <p>Backend development, server-side scripting, and integration with databases for web applications.</p>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fab fa-html5"></i>
-                            </div>
-                            <h4>HTML/CSS</h4>
-                            <p>Responsive web design, modern layout techniques, and creating interactive user interfaces.</p>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fab fa-js-square"></i>
-                            </div>
-                            <h4>JavaScript</h4>
-                            <p>Frontend interactivity, game logic implementation, and integration with web technologies.</p>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fab fa-java"></i>
-                            </div>
-                            <h4>Java Programming</h4>
-                            <p>Object-oriented programming, application development, and game mechanics implementation.</p>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon">
-                                <i class="fas fa-gamepad"></i>
-                            </div>
-                            <h4>Game Development</h4>
-                            <p>Game design principles, Unity basics, 2D/3D concepts, and interactive storytelling.</p>
-                        </div>
+                <div class="card feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
                     </div>
+                    <h3>Career Development</h3>
+                    <p>Gain access to workshops, networking events, and industry connections.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>Participate in hackathons, projects, and research initiatives to build your portfolio.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
+    <!-- Upcoming Events Preview -->
+    <section class="upcoming-events">
         <div class="container">
-            <h2>My Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-dragon"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Placeholder</h3>
-                        <p>A Placeholder for any future projects.</p>
-                        <div class="project-tags">
-                            <span>Java</span>
-                            <span>OOP</span>
-                            <span>Game Logic</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn">Not yet Available</a>
-                            <a href="#" class="btn btn-secondary">Not yet Available</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Student Elearning Canvas</h3>
-                        <p>A prototype Elearning canvas made with with Java.</p>
-                        <div class="project-tags">
-                            <span>PHP</span>
-                            <span>MySQL</span>
-                            <span>Java</span>
-                            <span>HTML</span>
-                            <span>Javascript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn">Not Available yet</a>
-                            <a href="#" class="btn btn-secondary">Not Available yet</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-space-shuttle"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Nuxeria</h3>
-                        <p>An Elearning Canvas with the tools to help students study.</p>
-                        <div class="project-tags">
-                            <span>JavaScript</span>
-                            <span>HTML5 Canvas</span>
-                            <span>Game Physics</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn">Not Available yet</a>
-                            <a href="#" class="btn btn-secondary">Not Available yet</a>
-                        </div>
-                    </div>
-                </div>
+            <h2 class="section-title">Upcoming Events</h2>
+            <div class="events-preview" id="eventsPreview">
+                <!-- Events will be loaded dynamically with JavaScript -->
+            </div>
+            <div class="text-center">
+                <a href="./Prelim-Exam/events.html" class="btn">View All Events</a>
             </div>
         </div>
     </section>
 
-    <!-- Certificates Section -->
-    <section class="certificates" id="certificates">
+    <!-- Stats Section -->
+    <section class="stats">
         <div class="container">
-            <h2>My Certificates</h2>
-            <div class="certificates-grid">
-                <!-- Certificate 1 - Networking -->
-                <div class="certificate-card" data-certificate="1">
-                    <div class="certificate-header">
-                        <img src="Assets/images/Networking-Certificate.png" alt="Networking Certificate" class="certificate-thumbnail">
-                        <span class="certificate-badge">Click to View</span>
-                    </div>
-                    <div class="certificate-content">
-                        <h3>Networking Certificate</h3>
-                        <p>Certificate for Completing Basic Networking Course, Earner Has Knowledge towards managing and Modifying Networks.</p>
-                        <span class="certificate-date">Issued: October 10, 2025</span>
-                        <a href="#" class="certificate-link view-certificate-btn" data-certificate="1">
-                            <i class="fas fa-expand-alt"></i> View Certificate
-                        </a>
-                    </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-label">Active Members</div>
                 </div>
-                
-                <!-- Certificate 2 - CSS -->
-                <div class="certificate-card" data-certificate="2">
-                    <div class="certificate-header">
-                        <img src="Assets/images/Intro to CSS.png" alt="Intro to CSS Certificate" class="certificate-thumbnail">
-                        <span class="certificate-badge">Click to View</span>
-                    </div>
-                    <div class="certificate-content">
-                        <h3>Intro to CSS</h3>
-                        <p>Certificate for completing Intro to CSS Course On Tesda.</p>
-                        <span class="certificate-date">Issued: March 6, 2024</span>
-                        <a href="#" class="certificate-link view-certificate-btn" data-certificate="2">
-                            <i class="fas fa-expand-alt"></i> View Certificate
-                        </a>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="50">0</div>
+                    <div class="stat-label">Events This Year</div>
                 </div>
-                
-                <!-- Certificate 3 - Computer Servers -->
-                <div class="certificate-card" data-certificate="3">
-                    <div class="certificate-header">
-                        <img src="Assets/images/Setting up Computer Servers.png" alt="Setting Up Computer Servers Certificate" class="certificate-thumbnail">
-                        <span class="certificate-badge">Click to View</span>
-                    </div>
-                    <div class="certificate-content">
-                        <h3>Setting Up Computer Servers</h3>
-                        <p>Completed by: Setting up computer server certificates to ensure secure and trusted communication.</p>
-                        <span class="certificate-date">Issued: March 11, 2024</span>
-                        <a href="#" class="certificate-link view-certificate-btn" data-certificate="3">
-                            <i class="fas fa-expand-alt"></i> View Certificate
-                        </a>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="15">0</div>
+                    <div class="stat-label">Industry Partners</div>
                 </div>
-                
-                <!-- Certificate 4 - Computer Systems -->
-                <div class="certificate-card" data-certificate="4">
-                    <div class="certificate-header">
-                        <img src="Assets/images/Maintaining Computer Systems.png" alt="Maintaining Computer Systems Certificate" class="certificate-thumbnail">
-                        <span class="certificate-badge">Click to View</span>
-                    </div>
-                    <div class="certificate-content">
-                        <h3>Maintaining Computer Systems and Networks</h3>
-                        <p>Completed by: Maintaining computer systems and networks.</p>
-                        <span class="certificate-date">Issued: March 11, 2024</span>
-                        <a href="#" class="certificate-link view-certificate-btn" data-certificate="4">
-                            <i class="fas fa-expand-alt"></i> View Certificate
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Certificate 5 - Installing & Config -->
-                <div class="certificate-card" data-certificate="5">
-                    <div class="certificate-header">
-                        <img src="Assets/images/Installing and Config.png" alt="Installing and Configuring Certificate" class="certificate-thumbnail">
-                        <span class="certificate-badge">Click to View</span>
-                    </div>
-                    <div class="certificate-content">
-                        <h3>Installing and Configuring Computer Systems</h3>
-                        <p>Installing and configuring computer systems to ensure proper operation and performance.</p>
-                        <span class="certificate-date">Issued: March 6, 2024</span>
-                        <a href="#" class="certificate-link view-certificate-btn" data-certificate="5">
-                            <i class="fas fa-expand-alt"></i> View Certificate
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Certificate 6 - UI Design -->
-                <div class="certificate-card" data-certificate="6">
-                    <div class="certificate-header">
-                        <img src="Assets/images/Developing DesignUI.png" alt="UI Design Certificate" class="certificate-thumbnail">
-                        <span class="certificate-badge">Click to View</span>
-                    </div>
-                    <div class="certificate-content">
-                        <h3>Developing Designs for User Interface</h3>
-                        <p>Developing designs for user interfaces that are simple, user-friendly, and visually clear.</p>
-                        <span class="certificate-date">Issued: April 14, 2024</span>
-                        <a href="#" class="certificate-link view-certificate-btn" data-certificate="6">
-                            <i class="fas fa-expand-alt"></i> View Certificate
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certificate Modal -->
-    <div class="modal-overlay" id="certificateModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modalTitle">Certificate Details</h3>
-                <button class="close-modal" id="closeModal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="certificate-image-container">
-                    <img id="modalCertificateImage" class="certificate-image" src="" alt="Certificate Image">
-                </div>
-                <div class="certificate-details">
-                    <h4 id="modalCertificateName">Certificate Name</h4>
-                    <p id="modalCertificateDescription">Certificate description will appear here.</p>
-                    
-                    <div class="certificate-info">
-                        <div class="info-item">
-                            <span class="info-label">Issued By:</span>
-                            <span class="info-value" id="modalIssuedBy">Tech University</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Date Issued:</span>
-                            <span class="info-value" id="modalDateIssued">Month 2024</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Credential ID:</span>
-                            <span class="info-value" id="modalCredentialId">CT-2024-001</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Skills:</span>
-                            <span class="info-value" id="modalSkills">JavaScript, HTML, CSS</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <a href="#" class="btn" id="externalLinkBtn" target="_blank">
-                    <i class="fas fa-external-link-alt"></i> View External Link
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p>Looking for collaborations on game projects or web development. Let's create something amazing together!</p>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>Tan@student.tech.edu</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+1 (555) 123-4567</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Tech University Campus</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <h3>Send Me a Message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" required placeholder="Interested in collaborating on a game project or need web development help?"></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
+                <div class="stat-card">
+                    <div class="stat-number" data-count="10">0</div>
+                    <div class="stat-label">Years Established</div>
                 </div>
             </div>
         </div>
@@ -438,25 +116,144 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container footer-content">
-            <a href="#home" class="logo" style="color: var(--primary); margin-bottom: 1rem;">
-                <i class="fas fa-gamepad logo-icon"></i>
-                Game<span>Dev</span> Portfolio
-            </a>
-            <p>BSIT Games Development Student | Database, PHP, HTML, JS, Java</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-itch-io"></i></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>JPCS</h3>
+                    <p>The Junior Philippine Computer Society is a student organization dedicated to advancing computer science education and fostering a community of tech enthusiasts.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                     <ul>
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="./Prelim-Exam/about.html" class="nav-link">About JPCS</a></li>
+        <li><a href="./Prelim-Exam/officers.html" class="nav-link">Officers</a></li>
+        <li><a href="./Prelim-Exam/events.html" class="nav-link">Events</a></li>
+        <li><a href="./Prelim-Exam/registration.html" class="nav-link">Registration</a></li>
+    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> contact@jpcs.org.ph</li>
+                        <li><i class="fas fa-phone"></i> (02) 1234-5678</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Manila, Philippines</li>
+                    </ul>
+                </div>
             </div>
+            
             <div class="copyright">
-                &copy; <span id="currentYear"></span> Charles Tan. All rights reserved.
+                &copy; <span id="currentYear"></span> Junior Philippine Computer Society. All rights reserved.
             </div>
         </div>
     </footer>
-    
-    <!-- External JavaScript Files -->
-    <script src="Assets/JS/script.js"></script>
+
+    <script src="./Prelim-Exam/data.js"></script>
+    <script src="./Prelim-Exam/script.js"></script>
+    <script>
+        // Home page specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load upcoming events preview
+            loadEventsPreview();
+            
+            // Animate stats counters
+            animateStats();
+            
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mainNav = document.getElementById('mainNav');
+            
+            if (mobileMenuBtn && mainNav) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+                    this.innerHTML = mainNav.classList.contains('active') 
+                        ? '<i class="fas fa-times"></i>' 
+                        : '<i class="fas fa-bars"></i>';
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('nav') && !e.target.closest('.mobile-menu-btn')) {
+                        mainNav.classList.remove('active');
+                        if (mobileMenuBtn) {
+                            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                        }
+                    }
+                });
+            }
+        });
+        
+        function loadEventsPreview() {
+            const eventsPreview = document.getElementById('eventsPreview');
+            if (!eventsPreview) return;
+            
+            // Get upcoming events (next 3 events)
+            const upcomingEvents = window.eventsData
+                .sort((a, b) => new Date(a.date) - new Date(b.date))
+                .slice(0, 3);
+            
+            eventsPreview.innerHTML = '';
+            
+            upcomingEvents.forEach(event => {
+                const eventCard = document.createElement('div');
+                eventCard.className = 'card event-card';
+                eventCard.innerHTML = `
+                    <div class="event-image" style="background-color: #${Math.floor(Math.random()*16777215).toString(16)};"></div>
+                    <div class="event-content">
+                        <span class="event-category">${event.category}</span>
+                        <div class="event-date">${formatDate(event.date)} | ${event.time}</div>
+                        <h3 class="event-title">${event.title}</h3>
+                        <p class="event-desc">${event.description}</p>
+                        <a href="./events" class="btn btn-outline">View Details</a>
+                    </div>
+                `;
+                
+                eventsPreview.appendChild(eventCard);
+            });
+        }
+        
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCount = () => {
+                    if (current < target) {
+                        current += increment;
+                        stat.textContent = Math.floor(current);
+                        setTimeout(updateCount, 20);
+                    } else {
+                        stat.textContent = target;
+                    }
+                };
+                
+                updateCount();
+            });
+        }
+        
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                month: 'short', 
+                day: 'numeric', 
+                year: 'numeric' 
+            });
+        }
+    </script>
 </body>
 </html>

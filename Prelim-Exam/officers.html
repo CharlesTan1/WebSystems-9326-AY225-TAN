@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Officers & Members - Junior Philippine Computer Society</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="logo-text">JP<span>CS</span></div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About JPCS</a></li>
+                    <li><a href="officers.html" class="nav-link active">Officers & Members</a></li>
+                    <li><a href="events.html" class="nav-link">Events</a></li>
+                    <li><a href="registration.html" class="nav-link">Join Us!</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Team & Members</h1>
+            <p>Meet the JPCS leadership team and our active members. See our community in action!</p>
+        </div>
+    </section>
+
+    <!-- Quick Registration CTA -->
+    <section class="quick-registration">
+        <div class="container">
+            <div class="card registration-cta">
+                <div class="cta-content">
+                    <h2><i class="fas fa-user-plus"></i> Want to Join Our Community?</h2>
+                    <p>Become a JPCS member today and connect with fellow tech enthusiasts!</p>
+                    <div class="cta-buttons">
+                        <button class="btn" id="quickJoinBtn">Quick Join</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Officers Filter -->
+    <section class="officers-filter">
+        <div class="container">
+            <div class="filter-buttons" id="officerFilter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="executive">Executive Board</button>
+                <button class="filter-btn" data-filter="committee">Committee Heads</button>
+                <button class="filter-btn" data-filter="member">Active Members</button>
+                <button class="filter-btn" data-filter="alumni">Alumni</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Officers Grid -->
+    <section class="officers-grid-section">
+        <div class="container">
+            <div class="officers-grid" id="officersGrid">
+                <!-- Officers will be loaded dynamically with JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Officer Modal -->
+    <div class="modal" id="officerModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Member Spotlight -->
+    <section class="member-spotlight">
+        <div class="container">
+            <h2 class="section-title">Member Spotlight</h2>
+            <div class="card spotlight-card">
+                <div class="spotlight-content" id="spotlightContent">
+                    <!-- Spotlight content will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Stats -->
+    <section class="membership-stats">
+        <div class="container">
+            <h2 class="section-title">Our Community</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalMembers">0</div>
+                    <div class="stat-label">Total Members</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="activeMembers">0</div>
+                    <div class="stat-label">Active This Month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="newMembers">0</div>
+                    <div class="stat-label">New This Month</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="eventParticipants">0</div>
+                    <div class="stat-label">Event Participants</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Registration Modal -->
+    <div class="modal" id="quickJoinModal">
+        <div class="modal-content">
+            <button class="modal-close" id="quickJoinClose">&times;</button>
+            <div class="modal-body">
+                <h2>Quick Join JPCS</h2>
+                <p>Enter your details to get started. We'll send you full registration details.</p>
+                
+                <form id="quickJoinForm">
+                    <div class="form-group">
+                        <label for="quickName" class="form-label">Full Name *</label>
+                        <input type="text" id="quickName" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="quickEmail" class="form-label">Email *</label>
+                        <input type="email" id="quickEmail" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="quickUniversity" class="form-label">University *</label>
+                        <input type="text" id="quickUniversity" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="quickNewsletter" checked>
+                            <span>Send me updates about JPCS events</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn">Submit Quick Join</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>JPCS</h3>
+                    <p>The Junior Philippine Computer Society is a student organization dedicated to advancing computer science education and fostering a community of tech enthusiasts.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About JPCS</a></li>
+                        <li><a href="officers.html">Officers & Members</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="registration.html">Join Us!</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> contact@jpcs.org.ph</li>
+                        <li><i class="fas fa-phone"></i> (02) 1234-5678</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Manila, Philippines</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Junior Philippine Computer Society. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Officers & Members page JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load officers and members
+            loadOfficers();
+            
+            // Load spotlight
+            loadSpotlight();
+            
+            // Load membership stats
+            loadMembershipStats();
+            
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Quick join button
+            document.getElementById('quickJoinBtn').addEventListener('click', function() {
+                document.getElementById('quickJoinModal').style.display = 'flex';
+            });
+            
+            // Quick join form submission
+            document.getElementById('quickJoinForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('quickName').value;
+                const email = document.getElementById('quickEmail').value;
+                const university = document.getElementById('quickUniversity').value;
+                const newsletter = document.getElementById('quickNewsletter').checked;
+                
+                // Save to localStorage
+                const quickJoins = JSON.parse(localStorage.getItem('jpcsQuickJoins') || '[]');
+                quickJoins.push({
+                    name: name,
+                    email: email,
+                    university: university,
+                    newsletter: newsletter,
+                    date: new Date().toISOString()
+                });
+                localStorage.setItem('jpcsQuickJoins', JSON.stringify(quickJoins));
+                
+                // Show success message
+                alert(`Thanks ${name}! We've sent registration details to ${email}.`);
+                document.getElementById('quickJoinModal').style.display = 'none';
+                document.getElementById('quickJoinForm').reset();
+                
+                // Update stats
+                loadMembershipStats();
+            });
+            
+            // Close modals
+            document.getElementById('modalClose').addEventListener('click', function() {
+                document.getElementById('officerModal').style.display = 'none';
+            });
+            
+            document.getElementById('quickJoinClose').addEventListener('click', function() {
+                document.getElementById('quickJoinModal').style.display = 'none';
+            });
+            
+            // Close modals when clicking outside
+            document.getElementById('officerModal').addEventListener('click', function(e) {
+                if (e.target === this) this.style.display = 'none';
+            });
+            
+            document.getElementById('quickJoinModal').addEventListener('click', function(e) {
+                if (e.target === this) this.style.display = 'none';
+            });
+        });
+        
+        function loadOfficers() {
+            const officersGrid = document.getElementById('officersGrid');
+            if (!officersGrid) return;
+            
+            // Clear existing content
+            officersGrid.innerHTML = '';
+            
+            // Render all officers and members
+            window.officersData.forEach(person => {
+                const personCard = document.createElement('div');
+                personCard.className = `card officer-card ${person.type}`;
+                personCard.innerHTML = `
+                    <div class="officer-avatar" style="background-color: #${Math.floor(Math.random()*16777215).toString(16)};">
+                        ${person.name.charAt(0)}
+                    </div>
+                    <div class="officer-info">
+                        <h3 class="officer-name">${person.name}</h3>
+                        <div class="officer-role">${person.position}</div>
+                        <div class="officer-department">${person.department}</div>
+                        <p class="officer-bio">${person.bio}</p>
+                    </div>
+                    <div class="officer-skills">
+                        ${person.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                    </div>
+                    <button class="btn btn-outline view-officer-btn" data-id="${person.id}">View Profile</button>
+                `;
+                
+                officersGrid.appendChild(personCard);
+            });
+            
+            // Add event listeners to view buttons
+            document.querySelectorAll('.view-officer-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const personId = parseInt(this.getAttribute('data-id'));
+                    const person = window.officersData.find(p => p.id === personId);
+                    showOfficerModal(person);
+                });
+            });
+            
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active filter button
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter people
+                    const filter = this.getAttribute('data-filter');
+                    filterOfficers(filter);
+                });
+            });
+        }
+        
+        function filterOfficers(filter) {
+            const officerCards = document.querySelectorAll('.officer-card');
+            
+            officerCards.forEach(card => {
+                if (filter === 'all') {
+                    card.style.display = 'block';
+                } else if (filter === 'alumni') {
+                    // For demo, show some as alumni
+                    const randomShow = Math.random() > 0.7;
+                    card.style.display = randomShow ? 'block' : 'none';
+                } else {
+                    if (card.classList.contains(filter)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+        
+        function showOfficerModal(person) {
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = `
+                <div class="modal-officer">
+                    <div class="modal-avatar" style="background-color: #${Math.floor(Math.random()*16777215).toString(16)};">
+                        ${person.name.charAt(0)}
+                    </div>
+                    <h2>${person.name}</h2>
+                    <div class="modal-role">${person.position}</div>
+                    <div class="modal-department">${person.department}</div>
+                    
+                    <div class="modal-details">
+                        <h3>About</h3>
+                        <p>${person.bio}</p>
+                        
+                        <h3>Education</h3>
+                        <p>${person.education}</p>
+                        
+                        <h3>Skills</h3>
+                        <div class="modal-skills">
+                            ${person.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                        </div>
+                        
+                        <h3>Contact</h3>
+                        <p><i class="fas fa-envelope"></i> ${person.email}</p>
+                        ${person.phone ? `<p><i class="fas fa-phone"></i> ${person.phone}</p>` : ''}
+                        
+                        <h3>Member Since</h3>
+                        <p>${new Date().getFullYear() - Math.floor(Math.random() * 3) - 1}</p>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('officerModal').style.display = 'flex';
+        }
+        
+        function loadSpotlight() {
+            const spotlightContent = document.getElementById('spotlightContent');
+            if (!spotlightContent) return;
+            
+            // Get random member for spotlight
+            const members = window.officersData.filter(o => o.type === 'member');
+            const randomMember = members[Math.floor(Math.random() * members.length)];
+            
+            if (randomMember) {
+                spotlightContent.innerHTML = `
+                    <div class="spotlight-avatar" style="background-color: #${Math.floor(Math.random()*16777215).toString(16)};">
+                        ${randomMember.name.charAt(0)}
+                    </div>
+                    <div class="spotlight-info">
+                        <h3>${randomMember.name}</h3>
+                        <div class="spotlight-role">${randomMember.position}</div>
+                        <p>${randomMember.bio}</p>
+                        <div class="spotlight-achievement">
+                            <i class="fas fa-trophy"></i>
+                            <span>Recently won the Hackathon 2023 with project "EduTech Solutions"</span>
+                        </div>
+                        <div class="spotlight-stats">
+                            <div class="stat">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Attended 8 events this year</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>Joined 3 project teams</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        
+        function loadMembershipStats() {
+            // Get stats from localStorage
+            const quickJoins = JSON.parse(localStorage.getItem('jpcsQuickJoins') || '[]');
+            const fullApplications = JSON.parse(localStorage.getItem('jpcsApplications') || '[]');
+            
+            const totalMembers = window.officersData.length + quickJoins.length + fullApplications.length;
+            const activeMembers = Math.floor(totalMembers * 0.7); // 70% active
+            const newMembers = quickJoins.filter(join => {
+                const joinDate = new Date(join.date);
+                const monthAgo = new Date();
+                monthAgo.setMonth(monthAgo.getMonth() - 1);
+                return joinDate > monthAgo;
+            }).length;
+            
+            // Update display
+            animateCounter('totalMembers', totalMembers);
+            animateCounter('activeMembers', activeMembers);
+            animateCounter('newMembers', newMembers);
+            animateCounter('eventParticipants', Math.floor(totalMembers * 1.5)); // Simulated
+        }
+        
+        function animateCounter(elementId, target) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current);
+            }, 30);
+        }
+    </script>
+</body>
+</html>

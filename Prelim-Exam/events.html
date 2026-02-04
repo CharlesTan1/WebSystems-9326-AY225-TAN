@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Junior Philippine Computer Society</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="logo-text">JP<span>CS</span></div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                     <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About JPCS</a></li>
+                        <li><a href="officers.html">Officers & Members</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="registration.html">Join Us!</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Events & Activities</h1>
+            <p>Stay updated with our upcoming events, workshops, and activities. Filter by category to find events that interest you.</p>
+        </div>
+    </section>
+
+    <!-- Events Filter -->
+    <section class="events-filter-section">
+        <div class="container">
+            <div class="filter-controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="eventSearch" placeholder="Search events...">
+                </div>
+                
+                <div class="filter-buttons" id="eventFilter">
+                    <button class="filter-btn active" data-filter="all">All Events</button>
+                    <button class="filter-btn" data-filter="upcoming">Upcoming</button>
+                    <button class="filter-btn" data-filter="past">Past Events</button>
+                    <button class="filter-btn" data-filter="workshop">Workshops</button>
+                    <button class="filter-btn" data-filter="seminar">Seminars</button>
+                    <button class="filter-btn" data-filter="competition">Competitions</button>
+                    <button class="filter-btn" data-filter="social">Social Events</button>
+                </div>
+                
+                <div class="sort-controls">
+                    <label for="sortSelect">Sort by:</label>
+                    <select id="sortSelect">
+                        <option value="date-asc">Date (Oldest to Newest)</option>
+                        <option value="date-desc">Date (Newest to Oldest)</option>
+                        <option value="title">Title (A-Z)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Grid -->
+    <section class="events-grid-section">
+        <div class="container">
+            <div class="events-grid" id="eventsGrid">
+                <!-- Events will be loaded dynamically with JavaScript -->
+            </div>
+            
+            <div class="no-events" id="noEvents" style="display: none;">
+                <div class="card">
+                    <div class="no-events-content">
+                        <i class="fas fa-calendar-times"></i>
+                        <h3>No events found</h3>
+                        <p>Try adjusting your search or filter criteria.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar View -->
+    <section class="calendar-section">
+        <div class="container">
+            <h2 class="section-title">Event Calendar</h2>
+            <div class="card">
+                <div class="calendar-controls">
+                    <button id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+                    <h3 id="currentMonth"></h3>
+                    <button id="nextMonth"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="calendar" id="calendar">
+                    <!-- Calendar will be generated with JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Modal -->
+    <div class="modal" id="eventModal">
+        <div class="modal-content">
+            <button class="modal-close" id="eventModalClose">&times;</button>
+            <div class="modal-body" id="eventModalBody">
+                <!-- Modal content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Registration Preferences -->
+    <section class="preferences-section">
+        <div class="container">
+            <div class="card">
+                <div class="preferences-content">
+                    <h3>Event Preferences</h3>
+                    <p>Tell us what types of events you're interested in to get personalized recommendations.</p>
+                    <div class="preferences-form">
+                        <div class="preference-options">
+                            <label class="preference-option">
+                                <input type="checkbox" id="pref-workshop" checked>
+                                <span>Workshops</span>
+                            </label>
+                            <label class="preference-option">
+                                <input type="checkbox" id="pref-seminar" checked>
+                                <span>Seminars</span>
+                            </label>
+                            <label class="preference-option">
+                                <input type="checkbox" id="pref-competition" checked>
+                                <span>Competitions</span>
+                            </label>
+                            <label class="preference-option">
+                                <input type="checkbox" id="pref-social" checked>
+                                <span>Social Events</span>
+                            </label>
+                            <label class="preference-option">
+                                <input type="checkbox" id="pref-networking" checked>
+                                <span>Networking Events</span>
+                            </label>
+                        </div>
+                        <button class="btn" id="savePreferences">Save Preferences</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>JPCS</h3>
+                    <p>The Junior Philippine Computer Society is a student organization dedicated to advancing computer science education and fostering a community of tech enthusiasts.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                         <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About JPCS</a></li>
+                        <li><a href="officers.html">Officers & Members</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="registration.html">Join Us!</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> contact@jpcs.org.ph</li>
+                        <li><i class="fas fa-phone"></i> (02) 1234-5678</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Manila, Philippines</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; <span id="currentYear"></span> Junior Philippine Computer Society. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Events page specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize events
+            loadEvents();
+            
+            // Initialize calendar
+            initializeCalendar();
+            
+            // Load saved preferences
+            loadPreferences();
+            
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Search functionality
+            document.getElementById('eventSearch').addEventListener('input', function() {
+                filterAndSortEvents();
+            });
+            
+            // Sort functionality
+            document.getElementById('sortSelect').addEventListener('change', function() {
+                filterAndSortEvents();
+            });
+            
+            // Save preferences
+            document.getElementById('savePreferences').addEventListener('click', function() {
+                savePreferences();
+            });
+            
+            // Close modal
+            document.getElementById('eventModalClose').addEventListener('click', function() {
+                document.getElementById('eventModal').style.display = 'none';
+            });
+            
+            // Close modal when clicking outside
+            document.getElementById('eventModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.style.display = 'none';
+                }
+            });
+        });
+        
+        function loadEvents() {
+            const eventsGrid = document.getElementById('eventsGrid');
+            if (!eventsGrid) return;
+            
+            // Filter and sort events
+            filterAndSortEvents();
+            
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active filter button
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter events
+                    filterAndSortEvents();
+                });
+            });
+        }
+        
+        function filterAndSortEvents() {
+            const eventsGrid = document.getElementById('eventsGrid');
+            const noEvents = document.getElementById('noEvents');
+            
+            // Get active filter
+            const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+            
+            // Get search term
+            const searchTerm = document.getElementById('eventSearch').value.toLowerCase();
+            
+            // Get sort option
+            const sortOption = document.getElementById('sortSelect').value;
+            
+            // Filter events
+            let filteredEvents = window.eventsData.filter(event => {
+                // Text search
+                const matchesSearch = searchTerm === '' || 
+                    event.title.toLowerCase().includes(searchTerm) ||
+                    event.description.toLowerCase().includes(searchTerm) ||
+                    event.category.toLowerCase().includes(searchTerm);
+                
+                if (!matchesSearch) return false;
+                
+                // Category/status filter
+                if (activeFilter === 'all') return true;
+                if (activeFilter === 'upcoming') return new Date(event.date) >= new Date();
+                if (activeFilter === 'past') return new Date(event.date) < new Date();
+                return event.category === activeFilter;
+            });
+            
+            // Sort events
+            filteredEvents.sort((a, b) => {
+                if (sortOption === 'date-asc') {
+                    return new Date(a.date) - new Date(b.date);
+                } else if (sortOption === 'date-desc') {
+                    return new Date(b.date) - new Date(a.date);
+                } else if (sortOption === 'title') {
+                    return a.title.localeCompare(b.title);
+                }
+                return 0;
+            });
+            
+            // Render events
+            renderEvents(filteredEvents);
+            
+            // Show/hide no events message
+            if (filteredEvents.length === 0) {
+                noEvents.style.display = 'block';
+            } else {
+                noEvents.style.display = 'none';
+            }
+        }
+        
+        function renderEvents(events) {
+            const eventsGrid = document.getElementById('eventsGrid');
+            eventsGrid.innerHTML = '';
+            
+            events.forEach(event => {
+                const eventCard = document.createElement('div');
+                eventCard.className = 'card event-card';
+                
+                // Check if event is upcoming or past
+                const eventDate = new Date(event.date);
+                const today = new Date();
+                const isPast = eventDate < today;
+                
+                eventCard.innerHTML = `
+                    <div class="event-image" style="background-color: #${Math.floor(Math.random()*16777215).toString(16)};">
+                        ${isPast ? '<span class="event-status past">Past Event</span>' : '<span class="event-status upcoming">Upcoming</span>'}
+                    </div>
+                    <div class="event-content">
+                        <span class="event-category">${event.category}</span>
+                        <div class="event-date">${formatDate(event.date)} | ${event.time}</div>
+                        <h3 class="event-title">${event.title}</h3>
+                        <p class="event-desc">${event.description}</p>
+                        <div class="event-meta">
+                            <span><i class="fas fa-users"></i> ${event.registered || 0} registered</span>
+                            <span><i class="fas fa-map-marker-alt"></i> ${event.location}</span>
+                        </div>
+                        <button class="btn ${isPast ? 'btn-outline' : ''} view-event-btn" data-id="${event.id}">
+                            ${isPast ? 'View Recap' : 'Register Now'}
+                        </button>
+                    </div>
+                `;
+                
+                eventsGrid.appendChild(eventCard);
+            });
+            
+            // Add event listeners to view buttons
+            document.querySelectorAll('.view-event-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const eventId = parseInt(this.getAttribute('data-id'));
+                    const event = window.eventsData.find(e => e.id === eventId);
+                    showEventModal(event);
+                });
+            });
+        }
+        
+        function showEventModal(event) {
+            const modalBody = document.getElementById('eventModalBody');
+            const eventDate = new Date(event.date);
+            const today = new Date();
+            const isPast = eventDate < today;
+            
+            modalBody.innerHTML = `
+                <div class="modal-event">
+                    <div class="modal-event-header">
+                        <h2>${event.title}</h2>
+                        <div class="modal-event-meta">
+                            <span class="event-category">${event.category}</span>
+                            <span class="event-date">${formatDate(event.date)} | ${event.time}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-event-body">
+                        <div class="modal-event-details">
+                            <h3>Event Details</h3>
+                            <p>${event.fullDescription || event.description}</p>
+                            
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <strong>Location:</strong>
+                                    <p>${event.location}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <strong>Duration:</strong>
+                                    <p>${event.duration || '3 hours'}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <div>
+                                    <strong>Registered Participants:</strong>
+                                    <p>${event.registered || 0} of ${event.capacity || 'Unlimited'} spots filled</p>
+                                </div>
+                            </div>
+                            
+                            ${event.requirements ? `
+                            <div class="detail-item">
+                                <i class="fas fa-clipboard-list"></i>
+                                <div>
+                                    <strong>Requirements:</strong>
+                                    <p>${event.requirements}</p>
+                                </div>
+                            </div>
+                            ` : ''}
+                        </div>
+                        
+                        ${!isPast ? `
+                        <div class="modal-event-registration">
+                            <h3>Register for this Event</h3>
+                            <div class="registration-form">
+                                <div class="form-group">
+                                    <label for="regName">Full Name</label>
+                                    <input type="text" id="regName" class="form-control" placeholder="Enter your full name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="regEmail">Email</label>
+                                    <input type="email" id="regEmail" class="form-control" placeholder="Enter your email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="regStudentId">Student ID</label>
+                                    <input type="text" id="regStudentId" class="form-control" placeholder="Enter your student ID">
+                                </div>
+                                <button class="btn btn-register" id="registerForEvent" data-id="${event.id}">Complete Registration</button>
+                            </div>
+                        </div>
+                        ` : `
+                        <div class="modal-event-recap">
+                            <h3>Event Recap</h3>
+                            <p>${event.recap || 'This event has concluded. Thank you to all participants!'}</p>
+                            ${event.winners ? `
+                            <div class="winners">
+                                <h4>Winners:</h4>
+                                <p>${event.winners}</p>
+                            </div>
+                            ` : ''}
+                        </div>
+                        `}
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('eventModal').style.display = 'flex';
+            
+            // Add registration functionality
+            const registerBtn = document.getElementById('registerForEvent');
+            if (registerBtn) {
+                registerBtn.addEventListener('click', function() {
+                    const eventId = this.getAttribute('data-id');
+                    registerForEvent(eventId);
+                });
+            }
+        }
+        
+        function registerForEvent(eventId) {
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const studentId = document.getElementById('regStudentId').value;
+            
+            if (!name || !email || !studentId) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Save registration to localStorage
+            const registrations = JSON.parse(localStorage.getItem('jpcsEventRegistrations') || '[]');
+            registrations.push({
+                eventId: eventId,
+                name: name,
+                email: email,
+                studentId: studentId,
+                date: new Date().toISOString()
+            });
+            localStorage.setItem('jpcsEventRegistrations', JSON.stringify(registrations));
+            
+            // Update event registration count
+            const event = window.eventsData.find(e => e.id === parseInt(eventId));
+            if (event) {
+                event.registered = (event.registered || 0) + 1;
+            }
+            
+            alert('Registration successful! You will receive a confirmation email shortly.');
+            document.getElementById('eventModal').style.display = 'none';
+            
+            // Refresh events display
+            filterAndSortEvents();
+        }
+        
+        function initializeCalendar() {
+            const currentMonthEl = document.getElementById('currentMonth');
+            const calendarEl = document.getElementById('calendar');
+            const prevMonthBtn = document.getElementById('prevMonth');
+            const nextMonthBtn = document.getElementById('nextMonth');
+            
+            let currentDate = new Date();
+            
+            function renderCalendar(date) {
+                const year = date.getFullYear();
+                const month = date.getMonth();
+                
+                // Update month display
+                currentMonthEl.textContent = date.toLocaleDateString('en-US', { 
+                    month: 'long', 
+                    year: 'numeric' 
+                });
+                
+                // Clear calendar
+                calendarEl.innerHTML = '';
+                
+                // Create day headers
+                const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                days.forEach(day => {
+                    const dayHeader = document.createElement('div');
+                    dayHeader.className = 'calendar-day-header';
+                    dayHeader.textContent = day;
+                    calendarEl.appendChild(dayHeader);
+                });
+                
+                // Get first day of month
+                const firstDay = new Date(year, month, 1);
+                const lastDay = new Date(year, month + 1, 0);
+                
+                // Add empty cells for days before first day of month
+                for (let i = 0; i < firstDay.getDay(); i++) {
+                    const emptyCell = document.createElement('div');
+                    emptyCell.className = 'calendar-day empty';
+                    calendarEl.appendChild(emptyCell);
+                }
+                
+                // Add days of month
+                for (let day = 1; day <= lastDay.getDate(); day++) {
+                    const dayCell = document.createElement('div');
+                    dayCell.className = 'calendar-day';
+                    dayCell.textContent = day;
+                    
+                    // Check if there are events on this day
+                    const cellDate = new Date(year, month, day);
+                    const eventsOnDay = window.eventsData.filter(event => {
+                        const eventDate = new Date(event.date);
+                        return eventDate.getDate() === cellDate.getDate() &&
+                               eventDate.getMonth() === cellDate.getMonth() &&
+                               eventDate.getFullYear() === cellDate.getFullYear();
+                    });
+                    
+                    if (eventsOnDay.length > 0) {
+                        dayCell.classList.add('has-event');
+                        dayCell.title = `${eventsOnDay.length} event(s) on this day`;
+                        
+                        // Add event indicator
+                        const eventIndicator = document.createElement('div');
+                        eventIndicator.className = 'event-indicator';
+                        eventIndicator.textContent = eventsOnDay.length;
+                        dayCell.appendChild(eventIndicator);
+                    }
+                    
+                    // Highlight today
+                    const today = new Date();
+                    if (cellDate.getDate() === today.getDate() &&
+                        cellDate.getMonth() === today.getMonth() &&
+                        cellDate.getFullYear() === today.getFullYear()) {
+                        dayCell.classList.add('today');
+                    }
+                    
+                    calendarEl.appendChild(dayCell);
+                }
+            }
+            
+            // Initial render
+            renderCalendar(currentDate);
+            
+            // Navigation
+            prevMonthBtn.addEventListener('click', () => {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                renderCalendar(currentDate);
+            });
+            
+            nextMonthBtn.addEventListener('click', () => {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                renderCalendar(currentDate);
+            });
+        }
+        
+        function loadPreferences() {
+            const preferences = JSON.parse(localStorage.getItem('jpcsEventPreferences') || '{}');
+            
+            // Set checkbox states
+            const checkboxes = ['workshop', 'seminar', 'competition', 'social', 'networking'];
+            checkboxes.forEach(type => {
+                const checkbox = document.getElementById(`pref-${type}`);
+                if (checkbox) {
+                    checkbox.checked = preferences[type] !== false;
+                }
+            });
+        }
+        
+        function savePreferences() {
+            const preferences = {
+                workshop: document.getElementById('pref-workshop').checked,
+                seminar: document.getElementById('pref-seminar').checked,
+                competition: document.getElementById('pref-competition').checked,
+                social: document.getElementById('pref-social').checked,
+                networking: document.getElementById('pref-networking').checked
+            };
+            
+            localStorage.setItem('jpcsEventPreferences', JSON.stringify(preferences));
+            alert('Preferences saved!');
+        }
+        
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                month: 'short', 
+                day: 'numeric', 
+                year: 'numeric' 
+            });
+        }
+    </script>
+</body>
+</html>
